@@ -4,7 +4,7 @@
 dataset = read.csv('Salary_Data.csv')
 
 # Splitting the dataset into the Training set and Test set
-# install.packages('caTools')
+install.packages('caTools')
 library(caTools)
 set.seed(123)
 split = sample.split(dataset$Salary, SplitRatio = 2/3)
@@ -23,6 +23,7 @@ regressor = lm(formula = Salary ~ YearsExperience,
 y_pred = predict(regressor, newdata = test_set)
 
 # Visualising the Training set results
+# install.packages('ggplot2')
 library(ggplot2)
 ggplot() +
   geom_point(aes(x = training_set$YearsExperience, y = training_set$Salary),

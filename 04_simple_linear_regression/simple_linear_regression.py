@@ -23,4 +23,21 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 10, random
 from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
-p = regressor.predict(X_test)
+y_pred = regressor.predict(X_test)
+
+# plot predictions and test set
+plt.scatter(X_train,y_train, color='red')
+plt.plot(X_train, regressor.predict(X_train), color='blue')
+plt.title('Salary vs. experience (training set)')
+plt.xlabel('Years of experience')
+plt.ylabel('Salary')
+plt.show()
+
+# plot TEST SET
+plt.scatter(X_test,y_test, color='red')
+plt.plot(X_train, regressor.predict(X_train), color='blue')
+plt.title('Salary vs. experience (test set)')
+plt.xlabel('Years of experience')
+plt.ylabel('Salary')
+plt.show()
+
